@@ -1,0 +1,60 @@
+openapi: 3.0.0
+info:
+  title: Nagellacker API
+  description: Eine Beispiel-API für eine Maniküre-Anwendung
+  version: 1.0.0
+servers:
+  - url: http://example-api.com/v1
+    description: Hauptentwicklungs-Server
+paths:
+  /manicure:
+    post:
+      summary: Erstellt eine neue Maniküre
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                Farbe:
+                  type: string
+                  enum:
+                    - Rot
+                    - Gelb
+                    - Blau
+                  example: Rot
+                Dauer der Maniküre:
+                  type: integer
+                  format: int32
+                  example: 90
+                Beschreibung:
+                  type: string
+                  maxLength: 10
+                  example: tolles Produkt
+                Hersteller:
+                  type: array
+                  items:
+                    type: string
+                  enum:
+                    - Essie
+                    - OPI
+                    - Catrice
+                  example:
+                    - Essie
+                    - OPI
+                Preis:
+                  type: number
+                  format: double
+                  example: 12.99
+                hemafrei:
+                  type: boolean
+                  example: false
+              required:
+                - Farbe
+                - Hersteller
+                - Preis
+      responses:
+        '200':
+          description: Erfolgreich erstellte Maniküre
+
