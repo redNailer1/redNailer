@@ -2,11 +2,11 @@ import React from "react";
 import {Checkbox, FormControlLabel, Grid, MenuItem, Select, TextField} from "@mui/material";
 
 function MyForm() {
-    const [selectedEffekt, setSelectedEffekt] = React.useState("Volumen");
+    const [selectedHautform, setSelectedHautform] = React.useState([]);
     const [selectedHersteller, setSelectedHersteller] = React.useState([]);
 
-    const handleEffektChange = (e) => {
-        setSelectedEffekt(e.target.value);
+    const handleHautformChange = (e) => {
+        setSelectedHautform(e.target.value);
     }
 
     const handleHerstellerChange = (e) => {
@@ -19,23 +19,25 @@ function MyForm() {
                 <TextField required label="Name" fullWidth variant="outlined" />
             </Grid>
             <Grid item xs={12} sm={6}>
-            <TextField
-                required
-                label="Effekt"
-                select
-                variant="outlined"
-                value={selectedEffekt}
-                onChange={handleEffektChange}
-                multiple
-                fullWidth
-            >
-                <MenuItem value={"Volumen"}>Volumen</MenuItem>
-                <MenuItem value={"Repair"}>Repair</MenuItem>
-                <MenuItem value={"Glanz"}>Glanz</MenuItem>
-            </TextField>
+                <TextField
+                    required
+                    label="Hautform"
+                    select
+                    variant="outlined"
+                    value={selectedHautform}
+                    onChange={handleHautformChange}
+                    fullWidth
+                >
+                    <MenuItem value={"normal"}>Volumen</MenuItem>
+                    <MenuItem value={"trocken"}>Repair</MenuItem>
+                    <MenuItem value={"Mischhaut"}>Glanz</MenuItem>
+                </TextField>
             </Grid>
             <Grid item xs={12} sm={6}>
-                <TextField label="Einwirkzeit" fullWidth variant="outlined" type="number" />
+                <FormControlLabel
+                    control={<Checkbox color="primary" />}
+                    label="Sonnenschutz"
+                    />
             </Grid>
             <Grid item xs={12}>
                 <TextField label="Beschreibung" fullWidth variant="outlined" />
@@ -50,9 +52,9 @@ function MyForm() {
                     fullWidth
                     variant="outlined"
                 >
-                    <MenuItem value={"Wella"}>Wella</MenuItem>
-                    <MenuItem value={"Schwarzkopf"}>Schwarzkopf</MenuItem>
-                    <MenuItem value={"Plantur"}>Plantur</MenuItem>
+                    <MenuItem value={"Nivea"}>Nivea</MenuItem>
+                    <MenuItem value={"Dove"}>Dove</MenuItem>
+                    <MenuItem value={"Alverde"}>Alverde</MenuItem>
                 </TextField>
             </Grid>
             <Grid item xs={12} sm={6}>
@@ -61,7 +63,7 @@ function MyForm() {
             <Grid item xs={12} sm={6}>
                 <FormControlLabel
                     control={<Checkbox color="primary" />}
-                    label="silikonfrei"
+                    label="Tierversuchsfrei"
                 />
             </Grid>
         </Grid>

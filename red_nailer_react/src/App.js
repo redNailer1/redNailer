@@ -2,8 +2,9 @@ import './App.css';
 import MyForm from "./MyComponent";
 import {Box, createTheme, ThemeProvider} from "@mui/material";
 import AppBarer from "./AppBarer";
-import Paper from "./Paper";
-import ExampleComponent2 from "./ShampoerComponenter";
+import Paperer from "./Paperer";
+import CremerComponenter from "./CremerComponenter";
+import LippenstifterComponenter from "./LippenstifterComponenter";
 
 const myTheme = createTheme({
   palette: {
@@ -20,9 +21,9 @@ function App() {
       <ThemeProvider theme={myTheme}>
         <AppBarer/>
           <Box>
-              <Paper>
+              <Paperer>
                   <MyForm/>
-              </Paper>
+              </Paperer>
           </Box>
       </ThemeProvider>
   );

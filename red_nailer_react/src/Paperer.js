@@ -21,7 +21,7 @@ const StyledPaper = styled(Paper)`
   }
 `;
 
-function Paper(props) {
+function Paperer(props) {
     return (
         <StyledPaper>
             {props.children}
@@ -29,4 +29,4 @@ function Paper(props) {
     );
 }
 
-export default Paper;
+export default Paperer;

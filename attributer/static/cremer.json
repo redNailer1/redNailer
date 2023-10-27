@@ -1,0 +1,60 @@
+{
+  "attributes": [
+    {
+      "name": "Name",
+      "fieldCategory": "string",
+      "required": "true"
+    },
+    {
+      "name": "Hautform",
+      "fieldCategory": "multiselect",
+      "required": "true",
+      "options": [
+        {
+          "value": "normal"
+        },
+        {
+          "value": "trocken"
+        },
+        {
+          "value": "Mischhaut"
+        }
+      ]
+    },
+    {
+      "name": "Sonnenschutz",
+      "fieldCategory": "string",
+      "required": "false"
+    },
+    {
+      "name": "Beschreibung",
+      "fieldCategory": "string",
+      "required": "false"
+    },
+    {
+      "name": "Hersteller",
+      "fieldCategory": "dropdown",
+      "required": "true",
+      "options": [
+        {
+          "value": "Nivea"
+        },
+        {
+          "value": "Dove"
+        },
+        {
+          "value": "Alverde"
+        }]
+    },
+    {
+      "name": "Preis",
+      "fieldCategory": "Double",
+      "required": "true"
+    },
+    {
+      "name": "Tierversuchsfrei",
+      "fieldCategory": "boolean",
+      "required": "false"
+    }
+  ]
+}

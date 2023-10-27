@@ -1,0 +1,57 @@
+{
+  "attributes": [
+    {
+      "name": "Produkt-Nummer",
+      "fieldCategory": "int",
+      "required": "true"
+    },
+    {
+      "name": "Beschreibung",
+      "fieldCategory": "string",
+      "required": "false"
+    },
+    {
+      "name": "Hersteller",
+      "fieldCategory": "multiselect",
+      "required": "false",
+      "options": [
+        {
+          "value": "Alverde",
+          "selected": "true"
+        },
+        {
+          "value": "Nyx"
+        },
+        {
+          "value": "Catrice"
+        }]
+    },
+    {
+      "name": "Preis",
+      "fieldCategory": "Double",
+      "required": "true"
+    },
+    {
+      "name": "Farbe",
+      "fieldCategory": "dropdown",
+      "required": "true",
+      "options": [
+        {
+          "value": "Rot",
+          "selected": "true"
+        },
+        {
+          "value": "Nude"
+        },
+        {
+          "value": "Transparent"
+        }
+      ]
+    },
+    {
+      "name": "Vegan",
+      "fieldCategory": "boolean",
+      "required": "false"
+    }
+  ]
+}
