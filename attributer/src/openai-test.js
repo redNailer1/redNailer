@@ -1,4 +1,5 @@
 const {OpenAIClient, AzureKeyCredential} = require("@azure/openai");
+var fs = require('fs');
 const example = "import React from \"react\";\n" +
     "import {Checkbox, FormControlLabel, Grid, MenuItem, Select, TextField} from \"@mui/material\";\n" +
     "\n" +
@@ -71,18 +72,35 @@ const messages = [
         role: "user",
         content: `Kannst du aus folgender JSON-Beschreibung die statische Form React Komponente generieren: ${JSON.stringify(jsonFile)}.
         Nutze als Vorlage ${JSON.stringify(example)}.
-        Gebe keine weitere Kommentare und füge den Padding ein.
-        Nutze styled-components und pinke Farben.`
+        Kannt du den Padding einfügen.
+        Bitte spare dir deine Kommentare und gebe nur Code aus`
     }
 ];
+
+function getPosition(string, subString, index) {
+    return string.split(subString, index).join(subString).length;
+}
 
 async function main() {
     const client = new OpenAIClient(endpoint, new AzureKeyCredential(azureApiKey));
     const deploymentId = "gpt-4";
 
-    const result = await client.getChatCompletions(deploymentId, messages);
+    console.log("Amperion:er on duty: ");
 
-    console.log(result.choices[0].message.content);
+    const result = await client.getChatCompletions(deploymentId, messages);
+    const content = result.choices[0].message.content;
+
+    const indexOfFirstSeparator = content.indexOf("import");
+    const indexOfSecondSeparator = content.lastIndexOf(";");
+
+    const code = content.substring(indexOfFirstSeparator, indexOfSecondSeparator);
+
+    fs.writeFile('../../red_nailer_react/src/MyForm.js', code, function (err) {
+        if (err) throw err;
+        console.log('File saved!');
+    });
+
+    console.log("Amperion:er done");
 }
 
 main().catch((err) => {
