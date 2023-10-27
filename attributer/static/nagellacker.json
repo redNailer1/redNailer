@@ -25,7 +25,10 @@
     {
       "name": "Beschreibung",
       "fieldCategory": "string",
-      "required": "false"
+      "required": "false",
+      "validationRules": {
+        "maxLength": 10
+      }
     },
     {
       "name": "Hersteller",
@@ -41,8 +44,7 @@
         },
         {
           "value": "Catrice"
-        }
-      ]
+        }]
     },
     {
       "name": "Preis",

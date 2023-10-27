@@ -1,5 +1,5 @@
 const {OpenAIClient, AzureKeyCredential} = require("@azure/openai");
-var fs = require('fs');
+const fs = require('fs');
 const example = "import React from \"react\";\n" +
     "import {Checkbox, FormControlLabel, Grid, MenuItem, Select, TextField} from \"@mui/material\";\n" +
     "\n" +
@@ -14,10 +14,10 @@ const example = "import React from \"react\";\n" +
     "    return (\n" +
     "        <Grid container spacing={2}>\n" +
     "            <Grid item xs={12} sm={6}>\n" +
-    "                <TextField label=\"Dauer der Maniküre\" fullWidth />\n" +
+    "                <TextField label=\"Dauer der Maniküre\" fullWidth name='dauerDerManikuere'/>\n" +
     "            </Grid>\n" +
     "            <Grid item xs={12} sm={6}>\n" +
-    "                <TextField label=\"Beschreibung\" fullWidth />\n" +
+    "                <TextField label=\"Beschreibung\" fullWidth name='beschreibung'/>\n" +
     "            </Grid>\n" +
     "            <Grid item xs={12} sm={6}>\n" +
     "                <Select\n" +
@@ -46,11 +46,11 @@ const example = "import React from \"react\";\n" +
     "                </Select>\n" +
     "            </Grid>\n" +
     "            <Grid item xs={12} sm={6}>\n" +
-    "                <TextField label=\"Preis\" fullWidth />\n" +
+    "                <TextField label=\"Preis\" fullWidth name='preis'/>\n" +
     "            </Grid>\n" +
     "            <Grid item xs={12} sm={6}>\n" +
     "                <FormControlLabel\n" +
-    "                    control={<Checkbox color=\"primary\" />}\n" +
+    "                    control={<Checkbox color=\"primary\" name='hemafrei'/>}\n" +
     "                    label=\"hemafrei\"\n" +
     "                />\n" +
     "            </Grid>\n" +
@@ -64,7 +64,7 @@ const example = "import React from \"react\";\n" +
 const endpoint = process.env["AZURE_OPENAI_ENDPOINT"];
 const azureApiKey = process.env["AZURE_OPENAI_KEY"];
 
-const jsonFile = require("../static/attributer.json");
+const jsonFile = require("../static/nagellacker.json");
 
 const messages = [
     {role: "system", content: "Du heiß Amperion:er und bist in der Lage, die Form-Components in React zu generieren"},
@@ -72,14 +72,11 @@ const messages = [
         role: "user",
         content: `Kannst du aus folgender JSON-Beschreibung die statische Form React Komponente generieren: ${JSON.stringify(jsonFile)}.
         Nutze als Vorlage ${JSON.stringify(example)}.
-        Kannt du den Padding einfügen.
-        Bitte spare dir deine Kommentare und gebe nur Code aus`
+        Nutze inline styling.
+        Bitte hinzufüge 'Speichern' und 'Abbrechen' Buttons. Beim Klicken auf 'Speichern' validiere die Form gegen die angegeben Regeln.
+        Bitte spare dir deine Kommentare und gebe nur Code aus.`
     }
 ];
-
-function getPosition(string, subString, index) {
-    return string.split(subString, index).join(subString).length;
-}
 
 async function main() {
     const client = new OpenAIClient(endpoint, new AzureKeyCredential(azureApiKey));
