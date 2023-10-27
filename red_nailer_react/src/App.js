@@ -1,8 +1,9 @@
 import './App.css';
 import MyForm from "./MyComponent";
 import {Box, createTheme, ThemeProvider} from "@mui/material";
-import MyAppBar from "./MyAppBar";
-import MyPaper from "./MyPaper";
+import AppBarer from "./AppBarer";
+import Paper from "./Paper";
+import ExampleComponent2 from "./ShampoerComponenter";
 
 const myTheme = createTheme({
   palette: {
@@ -17,11 +18,11 @@ const myTheme = createTheme({
 function App() {
   return (
       <ThemeProvider theme={myTheme}>
-        <MyAppBar/>
+        <AppBarer/>
           <Box>
-              <MyPaper>
+              <Paper>
                   <MyForm/>
-              </MyPaper>
+              </Paper>
           </Box>
       </ThemeProvider>
   );

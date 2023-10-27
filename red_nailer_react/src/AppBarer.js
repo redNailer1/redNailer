@@ -1,7 +1,7 @@
 import React from "react";
 import {AppBar, Toolbar, Typography} from "@mui/material";
 
-function MyAppBar() {
+function AppBarer() {
     return (
         <AppBar position="static">
             <Toolbar>
@@ -13,4 +13,4 @@ function MyAppBar() {
     );
 }
 
-export default MyAppBar;
+export default AppBarer;

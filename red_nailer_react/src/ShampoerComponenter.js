@@ -2,11 +2,11 @@ import React from "react";
 import {Checkbox, FormControlLabel, Grid, MenuItem, Select, TextField} from "@mui/material";
 
 function MyForm() {
-    const [selectedFarbe, setSelectedFarbe] = React.useState("Rot");
+    const [selectedEffekt, setSelectedEffekt] = React.useState("Volumen");
     const [selectedHersteller, setSelectedHersteller] = React.useState([]);
 
-    const handleFarbeChange = (e) => {
-        setSelectedFarbe(e.target.value);
+    const handleEffektChange = (e) => {
+        setSelectedEffekt(e.target.value);
     }
 
     const handleHerstellerChange = (e) => {
@@ -16,13 +16,13 @@ function MyForm() {
     return (
         <Grid container spacing={2} style={{ padding: "20px" }}>
             <Grid item xs={12}>
-                <TextField requiredc label="Name" fullWidth variant="outlined" />
+                <TextField required label="Name" fullWidth variant="outlined" />
             </Grid>
             <Grid item xs={12} sm={6}>
-            <Select
+            <TextField
                 required
                 label="Effekt"
-                fullWidth
+                select
                 variant="outlined"
                 value={selectedEffekt}
                 onChange={handleEffektChange}
@@ -31,7 +31,7 @@ function MyForm() {
                 <MenuItem value={"Volumen"}>Volumen</MenuItem>
                 <MenuItem value={"Repair"}>Repair</MenuItem>
                 <MenuItem value={"Glanz"}>Glanz</MenuItem>
-            </Select>
+            </TextField>
             </Grid>
             <Grid item xs={12} sm={6}>
                 <TextField label="Einwirkzeit" fullWidth variant="outlined" type="number" />
