@@ -1,0 +1,58 @@
+{
+  "attributes": [
+    {
+      "name": "Farbe",
+      "fieldCategory": "dropdown",
+      "required": "true",
+      "options": [
+        {
+          "value": "Rot",
+          "selected": "true"
+        },
+        {
+          "value": "Gelb"
+        },
+        {
+          "value": "Blau"
+        }
+      ]
+    },
+    {
+      "name": "Dauer der Maniküre",
+      "fieldCategory": "int",
+      "required": "false"
+    },
+    {
+      "name": "Beschreibung",
+      "fieldCategory": "string",
+      "required": "false"
+    },
+    {
+      "name": "Hersteller",
+      "fieldCategory": "multiselect",
+      "required": "true",
+      "options": [
+        {
+          "value": "Essie",
+          "selected": "true"
+        },
+        {
+          "value": "OPI"
+        },
+        {
+          "value": "Catrice"
+        }
+      ]
+    },
+    {
+      "name": "Preis",
+      "fieldCategory": "double",
+      "required": "true"
+    },
+    {
+      "name": "hemafrei",
+      "fieldCategory": "boolean",
+      "required": "false"
+    }
+  ]
+}
