@@ -8,7 +8,7 @@ const myTheme = createTheme({
             main: "#f62993",
         },
         secondary: {
-            main: "#cdcdd2",
+            main: "rgba(205,205,210,0.2)",
         },
     },
 });

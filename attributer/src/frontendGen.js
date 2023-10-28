@@ -124,7 +124,9 @@ const messages = [
         Nutze inline styling.
         Bitte hinzufüge 'Speichern' und 'Abbrechen' Buttons. Beim Klicken auf 'Speichern' validiere die Form gegen die angegeben Regeln.
         Bitte spare dir deine Kommentare und gebe nur Code aus.
-        Schreibe einen Gedicht zum Thema`
+        Schreibe einen Gedicht zum Thema
+        Achte darauf, dass die Form sich an ${JSON.stringify(example)} orientiert und auch errors übernimmt.
+        Ergänze für jede UI-Komponente eine sinnvolle Test-Id mit der Formulierung testid-name des Attributes aus ${JSON.stringify(jsonFile)}.`
     }
 ];
 
@@ -142,7 +144,7 @@ async function main() {
 
     const code = content.substring(indexOfFirstSeparator, indexOfSecondSeparator);
 
-    fs.writeFile('../../red_nailer_react/src/MyForm.js', code, function (err) {
+    fs.writeFile('../../red_nailer_react/src/NagellackerGenerierer.js', code, function (err) {
         if (err) throw err;
         console.log('File saved!');
     });
