@@ -21,13 +21,25 @@ async function main() {
             {
                 role: "user",
                 content: `Kannst du einen simplen Code produzieren, der Selenium Tests in JavaScript mit ChromeDriver für die Seite unter ${url} erstellt.
-                Nutze dafür das Szenario ${data} und suche Elemente nach den Data Test aus dem JavaScript Code ${code}`
+                Nutze dafür das Szenario ${data} und suche Elemente nach den Data Test aus dem JavaScript Code ${code}.
+                Bitte erspare dir deine Kommentare.`
             }
         ];
-        const result = await client.getChatCompletions(deploymentId, messages);
+        const result = await client.getChatCompletions(deploymentId, messages, {
+            temperature: 0.2
+        });
+
         const content = result.choices[0].message.content;
 
-        console.log(content);
+        const indexOfFirstSeparator = content.indexOf("const");
+        const indexOfSecondSeparator = content.lastIndexOf(";");
+
+        const generatedCode = content.substring(indexOfFirstSeparator, indexOfSecondSeparator);
+
+        fs.writeFile('e2e/tester.js', generatedCode, function (err) {
+            if (err) throw err;
+            console.log('File saved!');
+        });
     } catch(e) {
         console.log('Error:', e.stack);
     }
