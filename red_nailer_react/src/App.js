@@ -2,12 +2,6 @@ import './App.css';
 import {Box, createTheme, ThemeProvider} from "@mui/material";
 import AppBarer from "./AppBarer";
 import Paperer from "./Paperer";
-import CremerGenerier from "./CremerGenerier";
-import LippenstifterGenerier from "./LippenstifterGenerier";
-import ShampoerGenerier from "./ShampoerGenerier";
-import ShampoerGenerierer from "./ShampoerGenerierer";
-import CremerGenerierer from "./CremerGenerierer";
-import LippenstifterGenerierer from "./LippenstifterGenerierer";
 import NagellackerGenerierer from "./NagellackerGenerierer";
 
 const myTheme = createTheme({
